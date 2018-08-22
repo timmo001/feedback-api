@@ -1,13 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var responseRouter = require('./routes/response');
-
-var app = express();
+const createError = require('http-errors'),
+  express = require('express'),
+  path = require('path'),
+  cookieParser = require('cookie-parser'),
+  logger = require('morgan'),
+  helmet = require('helmet'),
+  cors = require('cors'),
+  indexRouter = require('./routes/index'),
+  responseRouter = require('./routes/response'),
+  app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,5 +37,8 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.use(cors());
+app.use(helmet());
 
 module.exports = app;
