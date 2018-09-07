@@ -44,4 +44,4 @@ CMD \
     && echo "Copy certs if provided.." \
     && if [ "x$CERTIFICATES_DIR" = "x" ]; then echo "No certificates directory provided"; else cp ${CERTIFICATES_DIR}/* ./ ; fi \
     && echo "Run app.." \
-    && node index.js
+    && yarn start
