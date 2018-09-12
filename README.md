@@ -30,7 +30,8 @@ See [here][feedback-app].
 }
 ```
 
-- POST `/response/get-all` - Get all responses. The `TOKEN` you set in `.env` is required.
+- POST `/response/get-all` - Get all responses. The `TOKEN` you set in `.env`
+ is required.
 
 ```json
 {
