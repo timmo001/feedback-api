@@ -1,12 +1,12 @@
 const loki = require('lokijs');
 
-var users;
+var responses;
 const databaseInitialize = () => {
-  users = db.getCollection('users')
-  if (!users) users = db.addCollection('users');
+  responses = db.getCollection('responses')
+  if (!responses) responses = db.addCollection('responses');
 };
 
-var db = new loki('responses.db', {
+var db = new loki('files/responses.db', {
   autoload: true,
   autoloadCallback: databaseInitialize,
   autosave: true,
@@ -15,7 +15,12 @@ var db = new loki('responses.db', {
 
 const addResponse = (response) => {
   console.log('Adding response to db..');
-  return users.insert(response);
+  return responses.insert(response);
+};
+
+const getResponses = () => {
+  console.log('Getting responses');
+  return responses.simplesort('id').data();
 };
 
 module.exports = (app, jsonParser) => {
@@ -26,5 +31,10 @@ module.exports = (app, jsonParser) => {
       addResponse(req.body);
       res.sendStatus(200);
     }
+  });
+  app.post('/response/get-all', jsonParser, (req, res) => {
+    if (!req.body.token) res.status(400).send('No token specified');
+    else if (req.body.token !== process.env.TOKEN) res.status(401).send('Bad token');
+    else res.json(getResponses());
   });
 };
