@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const response = require('./response');
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Feedback API' });
-});
-
-module.exports = router;
+module.exports = (app, jsonParser) => {
+  app.get('/', (req, res) => {
+    res.render('index', { title: 'Feedback API' });
+  });
+  response(app, jsonParser);
+};

@@ -1,6 +1,4 @@
-const express = require('express'),
-  router = express.Router();
-loki = require('lokijs');
+const loki = require('lokijs');
 
 var users;
 const databaseInitialize = () => {
@@ -8,7 +6,7 @@ const databaseInitialize = () => {
   if (!users) users = db.addCollection('users');
 };
 
-var db = new loki('files/home-panel.db', {
+var db = new loki('responses.db', {
   autoload: true,
   autoloadCallback: databaseInitialize,
   autosave: true,
@@ -20,14 +18,13 @@ const addResponse = (response) => {
   return users.insert(response);
 };
 
-/* POST response */
-router.post('/response', (req, res, next) => {
-  if (!req.body.id) res.status(400).send('No ID specified');
-  else if (req.body.status === undefined) res.status(400).send('No status specified');
-  else {
-    addResponse(req.body);
-    res.sendStatus(200);
-  }
-});
-
-module.exports = router;
+module.exports = (app, jsonParser) => {
+  app.post('/response', jsonParser, (req, res) => {
+    if (!req.body.id) res.status(400).send('No ID specified');
+    else if (req.body.status === undefined) res.status(400).send('No status specified');
+    else {
+      addResponse(req.body);
+      res.sendStatus(200);
+    }
+  });
+};

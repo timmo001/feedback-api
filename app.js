@@ -5,8 +5,7 @@ const createError = require('http-errors'),
   logger = require('morgan'),
   helmet = require('helmet'),
   cors = require('cors'),
-  indexRouter = require('./routes/index'),
-  responseRouter = require('./routes/response'),
+  bodyParser = require('body-parser'),
   app = express();
 
 // view engine setup
@@ -18,9 +17,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
+app.use(helmet());
+const jsonParser = bodyParser.json({ type: 'application/json' });
 
-app.use('/', indexRouter);
-app.use('/response', responseRouter);
+require('./routes')(app, jsonParser, {});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -37,8 +38,5 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error');
 });
-
-app.use(cors());
-app.use(helmet());
 
 module.exports = app;
