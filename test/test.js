@@ -5,6 +5,6 @@ describe('App', () => {
   it('has the default page', (done) => {
     request(app)
       .get('/')
-      .expect(/Welcome to Express/, done);
+      .expect(/Welcome to Feedback API/, done);
   });
 }); 
