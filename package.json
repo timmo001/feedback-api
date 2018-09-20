@@ -10,17 +10,17 @@
   "dependencies": {
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
-    "debug": "^3.1.0",
+    "debug": "^4.0.1",
     "express": "^4.16.3",
     "helmet": "^3.13.0",
-    "http-errors": "^1.7.0",
+    "http-errors": "^1.7.1",
     "lokijs": "^1.5.5",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "pug": "^2.0.3"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
-    "nodemon": "^1.18.3",
-    "supertest": "^3.1.0"
+    "nodemon": "^1.18.4",
+    "supertest": "^3.3.0"
   }
 }
