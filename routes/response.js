@@ -20,7 +20,7 @@ const addResponse = (response) => {
 
 const getResponses = () => {
   console.log('Getting responses');
-  return responses.simplesort('id').data();
+  return responses.chain().simplesort('id').data();
 };
 
 module.exports = (app, jsonParser) => {
