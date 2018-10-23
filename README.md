@@ -39,7 +39,7 @@ See [here][feedback-app].
 }
 ```
 
-[feedback-app]: https://gitlab.com/timmo/feedback-app
+[feedback-app]: https://github.com/timmo001/feedback-app
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
