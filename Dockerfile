@@ -39,6 +39,7 @@ LABEL \
     org.label-schema.vendor="Timmo"
 
 # Set run CMD
+# hadolint ignore=DL3025
 CMD \
     echo "" \
     && echo "Copy certs if provided.." \
