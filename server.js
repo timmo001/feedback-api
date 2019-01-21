@@ -8,6 +8,14 @@ const app = require('./app'),
   http = require('http'),
   fs = require('fs');
 
+const opts = {
+  logDirectory: config.log_directory,
+  fileNamePattern: '<DATE>.log',
+  dateFormat: 'YYYY-MM-DD'
+};
+const log = require('simple-node-logger').createRollingFileLogger(opts);
+log.setLevel(process.env.LOG_LEVEL || 'info');
+
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -42,11 +50,11 @@ const onError = (error) => {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+      log.error(bind + ' requires elevated privileges');
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+      log.error(bind + ' is already in use');
       process.exit(1);
       break;
     default:
@@ -83,12 +91,12 @@ if (fs.existsSync('fullchain.pem')) {
   }, app);
 } else {
   server = http.createServer(app);
-  console.log('SSL (HTTPS) is not active!!!');
+  log.info('SSL (HTTPS) is not active!!!');
 }
 
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API is live on port ${port}.`));
+server.listen(port, () => log.info(`API is live on port ${port}.`));
 server.on('error', onError);
 server.on('listening', onListening);

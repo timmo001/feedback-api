@@ -1252,7 +1252,7 @@ lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
 
-lodash@^4.17.4:
+lodash@^4.17.10, lodash@^4.17.4:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
@@ -1390,6 +1390,11 @@ mocha@5.2.0:
     minimatch "3.0.4"
     mkdirp "0.5.1"
     supports-color "5.4.0"
+
+moment@^2.20.1:
+  version "2.23.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.23.0.tgz#759ea491ac97d54bac5ad776996e2a58cc1bc225"
+  integrity sha512-3IE39bHVqFbWWaPOMHZF98Q9c3LDKGTmypMiTM2QygGXXElkFWIH7GxfmlwmY2vwa+wmNsoYZmG2iusf1ZjJoA==
 
 morgan@1.9.1:
   version "1.9.1"
@@ -1978,6 +1983,14 @@ shebang-regex@^1.0.0:
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+
+simple-node-logger@^18.12.21:
+  version "18.12.21"
+  resolved "https://registry.yarnpkg.com/simple-node-logger/-/simple-node-logger-18.12.21.tgz#9efd084f18acfdead27cad1254d7af3f74768246"
+  integrity sha512-I2dA9JLiNrdTsmOI2bT0mIQNEKhTKbj9OM8tny3Il/5R6QdJHlWrv1NDdS+6UQHEnYV1413FnwgqTjzmV0ctCw==
+  dependencies:
+    lodash "^4.17.10"
+    moment "^2.20.1"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
