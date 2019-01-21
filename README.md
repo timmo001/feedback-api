@@ -21,7 +21,9 @@ See [here][feedback-app].
 
 To use this app in IIS, the `web.config` file will handle most of this for you.
  The only addition is to install `iisnode` and add a `Handler Mapping` to the
- path `server.js` using the module  `iisnode`.
+ path `server.js` using the module  `iisnode`. You can then copy the built
+ version of the app to the `app` directory and any request to `/app/*` will be
+ mapped to the webapp.
 
 ## Usage
 
