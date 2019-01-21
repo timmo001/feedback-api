@@ -9,7 +9,7 @@ const app = require('./app'),
   fs = require('fs');
 
 const opts = {
-  logDirectory: config.log_directory,
+  logDirectory: 'files',
   fileNamePattern: '<DATE>.log',
   dateFormat: 'YYYY-MM-DD'
 };
