@@ -17,10 +17,16 @@ API for [Feedback App][feedback-app]
 
 See [here][feedback-app].
 
+## IIS Specific
+
+To use this app in IIS, the `web.config` file will handle most of this for you.
+ The only addition is to install `iisnode` and add a `Handler Mapping` to the
+ path `server.js` using the module  `iisnode`.
+
 ## Usage
 
-- GET `/` - Test the API is active.
-- POST `/response` - Send a response. `id` and `status` are required.
+- GET `/api` - Test the API is active.
+- POST `/api/response` - Send a response. `id` and `status` are required.
 
 ```json
 {
@@ -30,12 +36,12 @@ See [here][feedback-app].
 }
 ```
 
-- POST `/response/get-all` - Get all responses. The `TOKEN` you set in `.env`
+- POST `/api/response/get-all` - Get all responses. The `TOKEN` you set in `.env`
  is required.
 
 ```json
 {
-  "token": "cuxrTlt7jXKuJhDYpASo1XYlN69tfh7mqOYGrXIz5Zx0dZb9tNiYaFOkZLoQ9tdR"
+  "token": "sdfsdfdsfdsfgsgdsgesghreerhergrgergergeger"
 }
 ```
 
