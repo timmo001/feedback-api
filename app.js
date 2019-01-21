@@ -6,6 +6,7 @@ const createError = require('http-errors'),
   helmet = require('helmet'),
   cors = require('cors'),
   bodyParser = require('body-parser'),
+  db = require('./common/db'),
   app = express();
 
 // view engine setup
@@ -27,7 +28,7 @@ app.use((_req, res, next) => {
 });
 const jsonParser = bodyParser.json({ type: 'application/json' });
 
-require('./routes')(app, jsonParser, {});
+require('./routes')(app, jsonParser, db, {});
 
 // catch 404 and forward to error handler
 app.use((_req, _res, next) => {

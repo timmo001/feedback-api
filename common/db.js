@@ -4,10 +4,7 @@ const db = new Datastore({ filename: process.env.DB_PATH || 'files/responses.db'
 
 const getResponses = (cb) => {
   console.log('Getting responses..');
-  db.getAllData((err, docs) => {
-    if (err) { cb(err); return; }
-    cb(null, docs);
-  });
+  cb(null, db.getAllData());
 };
 
 const addResponse = (response, cb) => {
