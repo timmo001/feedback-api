@@ -16,7 +16,7 @@
     "http-errors": "1.7.1",
     "morgan": "1.9.1",
     "nedb": "1.8.0",
-    "pug": "2.0.3",
+    "pug": "2.0.4",
     "simple-node-logger": "18.12.21"
   },
   "devDependencies": {
